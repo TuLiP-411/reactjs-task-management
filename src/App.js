@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
-
+const typesList = ["Full-time", "Part-time", "Temporary-work", "Permanent"];
+const statusList = ["In-progress", "Open", "Resolved", "Closed"];
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -10,9 +11,9 @@ class App extends React.Component {
       name: "",
       startDate: "",
       dueDate: "",
+      type: "",
+      status: "",
       action: "ADD TASK", //default ADD task
-      type: ["Full-time", "Part-time", "Temporary-work", "Permanent"],
-      status: ["In-progress", "Open", "Resolved", "Closed"],
       tasks: [
         {
           name: "Writing code",
@@ -155,22 +156,26 @@ class App extends React.Component {
 
             <div className="form-group">
               <label>Type</label>
-              <select className="form-control">
-                {(Array.from(this.state.type)).map((type) => (
-                  <option value={type} onChange={this.changeType}>
-                    {type}
-                  </option>
+              <select
+                className="form-control"
+                value={this.state.type}
+                onChange={this.changeType}
+              >
+                {typesList.map((type) => (
+                  <option>{type}</option>
                 ))}
               </select>
             </div>
 
             <div className="form-group">
               <label>Status</label>
-              <select className="form-control">
-                {(Array.from(this.state.status)).map((status) => (
-                  <option value={status} onChange={this.changeStatus}>
-                    {status}
-                  </option>
+              <select
+                className="form-control"
+                value={this.state.status}
+                onChange={this.changeStatus}
+              >
+                {statusList.map((status) => (
+                  <option>{status}</option>
                 ))}
               </select>
             </div>
