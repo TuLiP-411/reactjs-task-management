@@ -211,7 +211,7 @@ class App extends React.Component {
                 }
                 item
               >
-                Add
+                Save
               </button>
             </div>
           </div>
